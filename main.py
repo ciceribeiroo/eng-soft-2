@@ -24,11 +24,11 @@ async def convert_mp4_to_mp3(bucketName: str, fileName: str):
 
         audio = video_to_audio(f_name, f_name_converted)
 
-        client.fput_object(bucketName, f"{fileName}_converted.mp3", f_name_converted)
+        client.fput_object(bucketName, f"{fileName.split('.')[0]}_converted.mp3", f_name_converted)
 
         return {"message": "Converted"}
     except Exception:
-        return {"message" : "Error"}
+        return {"message": "Error"}
 
 
 
